@@ -10,12 +10,12 @@ import {promisify} from 'util'
 const writeFileAsync = promisify(writeFile)
 
 const name = 'ngrok'
-const defaultVersion = '4VmDzA7iaHb'
+const defaultVersion = 'bNyj1mQVY4c'
 const fileSufix = '.zip'
 const downloadUrlScheme = 'https://bin.equinox.io/c/%s/%s%s'
 
 function getFullName(): string {
-  return util.format('ngrok-stable-%s-amd64', getOsType())
+  return util.format('ngrok-v3-stable-%s-amd64', getOsType())
 }
 
 async function writeTunnel(path: string, token: string): Promise<string> {
