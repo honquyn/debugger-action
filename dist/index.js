@@ -232,7 +232,7 @@ function writeTunnel(path, token) {
         const config = Object();
         config['version'] = 3;
         config['agent'] = {
-            'authtoken': token
+            authtoken: token
         };
         config['tunnels'] = {
             'tcp-8000': {
