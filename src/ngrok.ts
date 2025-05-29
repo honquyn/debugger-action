@@ -20,7 +20,8 @@ function getFullName(): string {
 
 async function writeTunnel(path: string, token: string): Promise<string> {
   const config = Object()
-  config['authtoken'] = token
+  config['version'] = 3
+  config['agent']['authtoken'] = token
   config['tunnels'] = {
     'tcp-8000': {
       addr: '8000',
@@ -79,6 +80,7 @@ export async function ngrok(NGROK_TOKEN: string): Promise<string> {
   const version = defaultVersion
   const execPath = await getExecPath(version)
   const cfgFile = util.format('%s/ngrok.cfg', execPath)
+  core.info(`exec path => ${cfgFile}`)
   writeTunnel(cfgFile, NGROK_TOKEN)
   const cmdList = [
     util.format('chmod +x %s/ngrok', execPath),
