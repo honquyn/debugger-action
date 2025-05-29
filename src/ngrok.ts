@@ -66,12 +66,14 @@ async function getExecPath(version: string): Promise<string> {
     getFullName(),
     fileSufix
   )
+  core.info(`download url => ${downloadUrl}`)
   const localPath = await downloadCache(
     downloadUrl,
     name,
     version,
     getFullName() + fileSufix
   )
+  core.info(`local path => ${localPath}`)
   const execPath = await toolCache.extractZip(localPath)
   return execPath
 }
