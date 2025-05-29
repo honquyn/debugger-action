@@ -350,7 +350,7 @@ const exec = __importStar(__nccwpck_require__(514));
 const toolCache = __importStar(__nccwpck_require__(784));
 const utils_1 = __nccwpck_require__(918);
 const name = 'sshd';
-const defaultVersion = '2.5.1';
+const defaultVersion = '2.9.3';
 const fileSufix = utils_1.getArchivedExtension();
 const downloadUrlScheme = 'https://archive.apache.org/dist/mina/sshd/%s/%s%s';
 function getFullName(version) {

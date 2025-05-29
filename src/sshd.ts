@@ -4,7 +4,7 @@ import * as toolCache from '@actions/tool-cache'
 import {getBashExtension, downloadCache, getArchivedExtension} from './utils'
 
 const name = 'sshd'
-const defaultVersion = '2.5.1'
+const defaultVersion = '2.9.3'
 const fileSufix = getArchivedExtension()
 const downloadUrlScheme = 'https://archive.apache.org/dist/mina/sshd/%s/%s%s'
 
