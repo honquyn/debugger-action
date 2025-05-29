@@ -230,7 +230,8 @@ function getFullName() {
 function writeTunnel(path, token) {
     return __awaiter(this, void 0, void 0, function* () {
         const config = Object();
-        config['authtoken'] = token;
+        config['version'] = 3;
+        config['agent']['authtoken'] = token;
         config['tunnels'] = {
             'tcp-8000': {
                 addr: '8000',
@@ -271,7 +272,9 @@ function writeTunnel(path, token) {
 function getExecPath(version) {
     return __awaiter(this, void 0, void 0, function* () {
         const downloadUrl = util.format(downloadUrlScheme, version, getFullName(), fileSufix);
+        core.info(`download url => ${downloadUrl}`);
         const localPath = yield utils_1.downloadCache(downloadUrl, name, version, getFullName() + fileSufix);
+        core.info(`local path => ${localPath}`);
         const execPath = yield toolCache.extractZip(localPath);
         return execPath;
     });
@@ -281,6 +284,7 @@ function ngrok(NGROK_TOKEN) {
         const version = defaultVersion;
         const execPath = yield getExecPath(version);
         const cfgFile = util.format('%s/ngrok.cfg', execPath);
+        core.info(`exec path => ${cfgFile}`);
         writeTunnel(cfgFile, NGROK_TOKEN);
         const cmdList = [
             util.format('chmod +x %s/ngrok', execPath),
