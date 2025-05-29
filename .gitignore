@@ -99,4 +99,4 @@ __tests__/runner/*
 lib/**/*
 
 # custom
-#dist/
+dist/
