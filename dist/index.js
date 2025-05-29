@@ -231,7 +231,9 @@ function writeTunnel(path, token) {
     return __awaiter(this, void 0, void 0, function* () {
         const config = Object();
         config['version'] = 3;
-        config['agent']['authtoken'] = token;
+        config['agent'] = {
+            'authtoken': token
+        };
         config['tunnels'] = {
             'tcp-8000': {
                 addr: '8000',
